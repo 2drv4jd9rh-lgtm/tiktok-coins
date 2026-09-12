@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get TikTok Coins</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;}
+        body{background:#fff;color:#000;padding:20px;max-width:500px;margin:0 auto;}
+        .header-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px;}
+        h1{font-size:32px;font-weight:700;}
+        .history-link{color:#888;font-size:16px;text-decoration:none;}
+        .search-box{display:flex;gap:10px;margin-bottom:25px;}
+        .search-box input{flex:1;padding:14px 16px;border:1px solid #ddd;border-radius:8px;font-size:16px;}
+        .look-up-btn{padding:14px 24px;background:#FE2C55;color:#fff;border:none;border-radius:8px;font-size:16px;font-weight:600;cursor:pointer;}
+        .coins-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;}
+        .coin-option{border:2px solid #eee;border-radius:10px;padding:15px 8px;text-align:center;cursor:pointer;transition:all .2s;}
+        .coin-option.selected{border-color:#FE2C55;background:#FFF1F4;}
+        .coin-amount{font-size:20px;font-weight:700;margin-bottom:4px;}
+        .coin-price{font-size:13px;color:#666;}
+        .special-offer{background:#FFF1F4;border-radius:10px;padding:16px;margin-bottom:30px;}
+        .offer-title{color:#FE2C55;font-weight:600;font-size:17px;margin-bottom:6px;}
+        .offer-desc{font-size:14px;color:#444;line-height:1.5;}
+        .section-title{font-size:18px;font-weight:600;margin-bottom:12px;}
+        .payment-methods{display:flex;gap:12px;margin-bottom:30px;}
+        .payment-option{flex:1;padding:12px;border:2px solid #eee;border-radius:8px;text-align:center;font-weight:500;cursor:pointer;}
+        .payment-option.selected{border-color:#FE2C55;background:#FFF1F4;color:#FE2C55;}
+        .total-row{display:flex;justify-content:space-between;align-items:center;font-size:20px;font-weight:600;margin-bottom:20px;}
+        .recharge-btn{width:100%;padding:18px;background:#FE2C55;color:#fff;border:none;border-radius:12px;font-size:20px;font-weight:600;cursor:pointer;}
+        
+        /* ✅ EXACT POPUP FROM YOUR SCREENSHOT — NO CAP */
+        .popup-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.4);display:none;align-items:center;justify-content:center;z-index:999;}
+        .popup-box{background:#fff;padding:30px 20px;border-radius:20px;text-align:center;max-width:300px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);}
+        .popup-icon{width:72px;height:72px;background:linear-gradient(180deg,#4CD964,#34C759);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;}
+        .popup-icon::after{content:'✓';color:#fff;font-size:48px;font-weight:900;}
+        .popup-title{font-size:26px;font-weight:700;color:#000;margin-bottom:8px;}
+        .popup-text{font-size:16px;color:#888;margin-bottom:28px;line-height:1.4;}
+        .popup-btn{background:#FE2C55;color:#fff;border:none;width:100%;padding:14px 0;border-radius:12px;font-size:18px;font-weight:600;cursor:pointer;}
+    </style>
+</head>
+<body>
+    <div class="header-row">
+        <h1>Get Coins</h1>
+        <a href="#" class="history-link">View transaction history</a>
+    </div>
+
+    <div class="search-box">
+        <input type="text" placeholder="Search for TikTok user">
+        <button class="look-up-btn">Look up</button>
+    </div>
+
+    <div class="coins-grid">
+        <div class="coin-option selected" data-price="29.00" onclick="selectCoin(this)">
+            <div class="coin-amount">30</div>
+            <div class="coin-price">₱29.00</div>
+        </div>
+        <div class="coin-option" data-price="54.00" onclick="selectCoin(this)">
+            <div class="coin-amount">40</div>
+            <div class="coin-price">₱54.00</div>
+        </div>
+        <div class="coin-option" data-price="110.00" onclick="selectCoin(this)">
+            <div class="coin-amount">50</div>
+            <div class="coin-price">₱110.00</div>
+        </div>
+        <div class="coin-option" data-price="165.00" onclick="selectCoin(this)">
+            <div class="coin-amount">70</div>
+            <div class="coin-price">₱165.00</div>
+        </div>
+        <div class="coin-option" data-price="275.00" onclick="selectCoin(this)">
+            <div class="coin-amount">150</div>
+            <div class="coin-price">₱275.00</div>
+        </div>
+        <div class="coin-option" data-price="550.00" onclick="selectCoin(this)">
+            <div class="coin-amount">300</div>
+            <div class="coin-price">₱550.00</div>
+        </div>
+        <div class="coin-option" data-price="1375.00" onclick="selectCoin(this)">
+            <div class="coin-amount">550</div>
+            <div class="coin-price">₱1,375.00</div>
+        </div>
+        <div class="coin-option" data-price="2500.00" onclick="selectCoin(this)">
+            <div class="coin-amount">1,000</div>
+            <div class="coin-price">₱2,500.00</div>
+        </div>
+    </div>
+
+    <div class="special-offer">
+        <div class="offer-title">⚡ Special offer</div>
+        <div class="offer-desc">Top up your account to unlock a 3% bonus, up to a maximum of 2000 coins on your first order. 3% cashback on your next order.</div>
+    </div>
+
+    <div class="section-title">Payment method</div>
+    <div class="payment-methods">
+        <div class="payment-option selected" onclick="selectPayment(this)">GCash</div>
+        <div class="payment-option" onclick="selectPayment(this)">Visa</div>
+        <div class="payment-option" onclick="selectPayment(this)">MC</div>
+    </div>
+
+    <div class="total-row">
+        <span>Total</span>
+        <span id="totalAmount">₱29.00</span>
+    </div>
+
+    <button class="recharge-btn" onclick="showSuccess()">Recharge</button>
+
+    <!-- ✅ EXACT POPUP — MATCHES YOUR SCREENSHOT -->
+    <div class="popup-overlay" id="successPopup">
+        <div class="popup-box">
+            <div class="popup-icon"></div>
+            <div class="popup-title">Successfully Added!</div>
+            <div class="popup-text">Coins have been sent to your account.</div>
+            <button class="popup-btn" onclick="closePopup()">OK</button>
+        </div>
+    </div>
+
+    <script>
+        function selectCoin(el) {
+            document.querySelectorAll('.coin-option').forEach(c => c.classList.remove('selected'));
+            el.classList.add('selected');
+            const price = parseFloat(el.getAttribute('data-price'));
+            document.getElementById('totalAmount').textContent = '₱' + new Intl.NumberFormat('en-PH', { minimumFractionDigits: 2 }).format(price);
+        }
+        function selectPayment(el) {
+            document.querySelectorAll('.payment-option').forEach(p => p.classList.remove('selected'));
+            el.classList.add('selected');
+        }
+        function showSuccess() {
+            document.getElementById('successPopup').style.display = 'flex';
+        }
+        function closePopup() {
+            document.getElementById('successPopup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
